@@ -2,6 +2,11 @@ const express = require('express');
 const request = require('request');
 
 const app = express();
+var router = express.Router();
+
+router.get('/', function(req, res, next) {
+  res.json({message: 'up'});
+});
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -22,3 +27,5 @@ app.get('/req/*', (req, res) => {
         }
     )
 });
+
+module.exports = app;
